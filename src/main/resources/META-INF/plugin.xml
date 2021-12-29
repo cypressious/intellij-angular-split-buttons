@@ -1,0 +1,39 @@
+<idea-plugin>
+    <id>org.example.angular-combined-view-plugin</id>
+    <name>Angular Split View Buttons</name>
+    <vendor email="kirill.rakhman+dev@gmail.com" url="https://github.com/cypressious/intellij-angular-split-buttons">Kirill Rakhman</vendor>
+
+    <description><![CDATA[
+        Adds hovering buttons to Angular component files to quickly open the code, template and
+        style files in a split view.
+    ]]></description>
+
+    <!-- please see https://plugins.jetbrains.com/docs/intellij/plugin-compatibility.html
+         on how to target different products -->
+    <depends>com.intellij.modules.platform</depends>
+    <depends optional="true">JavaScript</depends>
+    <depends optional="true">org.jetbrains.plugins.sass</depends>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <!-- Add your extensions here -->
+    </extensions>
+
+    <actions>
+        <action id="de.rakhman.angular_split_buttons.OpenAngularStylesAction"
+                class="de.rakhman.angular_split_buttons.OpenAngularStylesAction"
+                text="OpenAngularTemplate">
+            <add-to-group group-id="EditorContextBarMenu" anchor="first"/>
+        </action>
+        <action id="de.rakhman.angular_split_buttons.OpenAngularCodeAction"
+                class="de.rakhman.angular_split_buttons.OpenAngularCodeAction"
+                text="OpenAngularTemplate">
+            <add-to-group group-id="EditorContextBarMenu" anchor="first"/>
+        </action>
+        <action id="de.rakhman.angular_split_buttons.OpenAngularTemplateAction"
+                class="de.rakhman.angular_split_buttons.OpenAngularTemplateAction"
+                text="OpenAngularTemplate">
+            <add-to-group group-id="EditorContextBarMenu" anchor="first"/>
+        </action>
+    </actions>
+
+</idea-plugin>
