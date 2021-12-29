@@ -19,12 +19,13 @@ intellij {
     type.set("IU")
     plugins.set(listOf("JavaScriptLanguage", "sass"))
     version.set("2021.2.3")
+    updateSinceUntilBuild.set(false)
 }
+
 tasks {
     patchPluginXml {
         changeNotes.set("""Initial Release""".trimIndent())
         version.set(project.version.toString())
         sinceBuild.set("212.0")
-        untilBuild.set("999.*")
     }
 }
