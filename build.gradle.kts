@@ -4,7 +4,7 @@ plugins {
 }
 
 group = "org.example"
-version = "0.1"
+version = "0.1.1"
 
 repositories {
     mavenCentral()
@@ -24,7 +24,12 @@ intellij {
 
 tasks {
     patchPluginXml {
-        changeNotes.set("""Initial Release""".trimIndent())
+        changeNotes.set("""
+            0.1.1
+            <ul>
+                <li>Fix NPE when opening non Angular file</li>
+            </ul>
+        """.trimIndent())
         version.set(project.version.toString())
         sinceBuild.set("212.0")
     }
