@@ -1,2 +1,2 @@
-rootProject.name = "angular-combined-view-plugin"
+rootProject.name = "intellij-angular-split-buttons"
 
