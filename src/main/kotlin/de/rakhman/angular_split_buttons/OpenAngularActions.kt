@@ -15,10 +15,10 @@ abstract class AbstractOpenAngularAction : AnAction() {
     abstract val extensions: Map<String, Icon>
 
     override fun update(e: AnActionEvent) {
-        val file = e.getData(CommonDataKeys.PSI_FILE)!!
-        val sibling = getSibling(file)
+        val file = e.getData(CommonDataKeys.PSI_FILE)
+        val sibling = file?.let { getSibling(it) }
 
-        e.presentation.isEnabledAndVisible = !hasMatchingExtension(file) && sibling != null
+        e.presentation.isEnabledAndVisible = file != null && sibling != null && !hasMatchingExtension(file)
         e.presentation.text = "Open ${sibling?.name}"
         e.presentation.icon = sibling?.name?.substringAfterLast(".")?.let {
             extensions[it.lowercase()]
