@@ -11,14 +11,18 @@ import icons.SassIcons
 import javax.swing.Icon
 import javax.swing.JSplitPane
 
-abstract class AbstractOpenAngularAction : AnAction() {
+abstract class AbstractOpenAngularAction(
+    title: String,
+    icon: Icon,
+) : AnAction({ title }, icon) {
     abstract val extensions: Map<String, Icon>
 
     override fun update(e: AnActionEvent) {
         val file = e.getData(CommonDataKeys.PSI_FILE)
         val sibling = file?.let { getSibling(it) }
 
-        e.presentation.isEnabledAndVisible = file != null && sibling != null && !hasMatchingExtension(file)
+        e.presentation.isEnabledAndVisible =
+            file != null && sibling != null && !hasMatchingExtension(file)
         e.presentation.text = "Open ${sibling?.name}"
         e.presentation.icon = sibling?.name?.substringAfterLast(".")?.let {
             extensions[it.lowercase()]
@@ -71,19 +75,22 @@ abstract class AbstractOpenAngularAction : AnAction() {
 }
 
 
-class OpenAngularTemplateAction : AbstractOpenAngularAction() {
+class OpenAngularTemplateAction :
+    AbstractOpenAngularAction("Open Component Template", AllIcons.FileTypes.Html) {
     override val extensions = mapOf(
         "html" to AllIcons.FileTypes.Html,
     )
 }
 
-class OpenAngularCodeAction : AbstractOpenAngularAction() {
+class OpenAngularCodeAction :
+    AbstractOpenAngularAction("Open Component Code", JavaScriptPsiIcons.FileTypes.TypeScriptFile) {
     override val extensions = mapOf(
         "ts" to JavaScriptPsiIcons.FileTypes.TypeScriptFile,
     )
 }
 
-class OpenAngularStylesAction : AbstractOpenAngularAction() {
+class OpenAngularStylesAction :
+    AbstractOpenAngularAction("Open Component Styles", AllIcons.FileTypes.Css) {
     override val extensions = mapOf(
         "css" to AllIcons.FileTypes.Css,
         "scss" to SassIcons.Sass,
