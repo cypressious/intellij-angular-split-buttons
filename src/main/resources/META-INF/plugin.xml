@@ -1,15 +1,28 @@
 <idea-plugin>
     <id>org.example.angular-combined-view-plugin</id>
     <name>Angular Split View Buttons</name>
-    <vendor email="kirill.rakhman+dev@gmail.com" url="https://github.com/cypressious/intellij-angular-split-buttons">Kirill Rakhman</vendor>
+    <vendor email="kirill.rakhman+dev@gmail.com"
+            url="https://github.com/cypressious/intellij-angular-split-buttons">Kirill Rakhman
+    </vendor>
 
     <description><![CDATA[
         Adds hovering buttons to Angular component files to quickly open the code, template and
         style files in a split view.
     ]]></description>
 
-    <!-- please see https://plugins.jetbrains.com/docs/intellij/plugin-compatibility.html
-         on how to target different products -->
+    <change-notes><![CDATA[
+        0.1.2
+        <ul>
+            <li>Add icons and descriptive names to Keymap entries</li>
+            <li>Make dependency on JS and SASS plugins mandatory</li>
+        </ul>
+
+        0.1.1
+        <ul>
+            <li>Fix NPE when opening non Angular file</li>
+        </ul>
+        ]]></change-notes>
+
     <depends>com.intellij.modules.platform</depends>
     <depends>JavaScript</depends>
     <depends>org.jetbrains.plugins.sass</depends>
