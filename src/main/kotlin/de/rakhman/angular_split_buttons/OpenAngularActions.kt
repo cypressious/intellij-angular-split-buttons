@@ -44,7 +44,7 @@ abstract class AbstractOpenAngularAction(
 
         if (window != null) {
             // if it exists, open the respective editor and focus it
-            window.setSelectedEditor(window.editors.first { it.file == siblingFile }, true)
+            window.setSelectedComposite(window.allComposites.first { it.file == siblingFile }, true)
         } else {
             // otherwise, split the current window
             val currentWindow =
