@@ -18,7 +18,7 @@ dependencies {
 intellij {
     type.set("IU")
     plugins.set(listOf("JavaScriptLanguage", "sass"))
-    version.set("2021.2.3")
+    version.set("LATEST-EAP-SNAPSHOT")
     updateSinceUntilBuild.set(false)
 }
 
