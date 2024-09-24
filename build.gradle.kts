@@ -1,30 +1,42 @@
 plugins {
-    kotlin("jvm") version "1.6.10"
-    id("org.jetbrains.intellij") version "1.4.0"
+    kotlin("jvm") version "1.9.25"
+    id("org.jetbrains.intellij.platform") version "2.0.1"
 }
 
 group = "org.example"
-version = "0.1.3"
+version = "0.1.4"
 
 repositories {
     mavenCentral()
+
+    intellijPlatform {
+        defaultRepositories()
+    }
 }
 
 dependencies {
-    implementation(kotlin("stdlib"))
+    intellijPlatform {
+        create("IU", "2024.2")
+        bundledPlugins(listOf("JavaScript", "org.jetbrains.plugins.sass"))
+
+        pluginVerifier()
+        zipSigner()
+        instrumentationTools()
+    }
 }
 
-// See https://github.com/JetBrains/gradle-intellij-plugin/
-intellij {
-    type.set("IU")
-    plugins.set(listOf("JavaScriptLanguage", "sass"))
-    version.set("LATEST-EAP-SNAPSHOT")
-    updateSinceUntilBuild.set(false)
-}
+// See https://plugins.jetbrains.com/docs/intellij/tools-intellij-platform-gradle-plugin-extension.html
+intellijPlatform {
+    pluginConfiguration {
+        ideaVersion {
+            sinceBuild = "223"
+            untilBuild = provider { null }
+        }
+    }
 
-tasks {
-    patchPluginXml {
-        version.set(project.version.toString())
-        sinceBuild.set("212.0")
+    pluginVerification {
+        ides {
+            recommended()
+        }
     }
 }

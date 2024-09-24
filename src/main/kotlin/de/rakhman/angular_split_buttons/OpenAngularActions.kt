@@ -1,6 +1,7 @@
 package de.rakhman.angular_split_buttons
 
 import com.intellij.icons.AllIcons
+import com.intellij.openapi.actionSystem.ActionUpdateThread
 import com.intellij.openapi.actionSystem.AnAction
 import com.intellij.openapi.actionSystem.AnActionEvent
 import com.intellij.openapi.actionSystem.CommonDataKeys
@@ -38,7 +39,7 @@ abstract class AbstractOpenAngularAction(
 
         // find existing window where the sibling file is opened and which is not the window
         // where the action was performed
-        val window = fileEditorManager.splitters.windows.firstOrNull {
+        val window = fileEditorManager.splitters.windows().firstOrNull {
             !it.hasEditor(myEditor) && it.hasFile(siblingFile)
         }
 
@@ -48,10 +49,10 @@ abstract class AbstractOpenAngularAction(
         } else {
             // otherwise, split the current window
             val currentWindow =
-                fileEditorManager.splitters.windows.firstOrNull { it.hasEditor(myEditor) }
+                fileEditorManager.splitters.windows().firstOrNull { it.hasEditor(myEditor) }
                     ?: fileEditorManager.currentWindow
 
-            currentWindow.split(
+            currentWindow?.split(
                 JSplitPane.HORIZONTAL_SPLIT,
                 false,
                 siblingFile,
@@ -71,6 +72,10 @@ abstract class AbstractOpenAngularAction(
 
     private fun hasMatchingExtension(file: PsiFile): Boolean {
         return file.name.substringAfterLast(".").lowercase() in extensions
+    }
+
+    override fun getActionUpdateThread(): ActionUpdateThread {
+        return ActionUpdateThread.BGT
     }
 }
 
