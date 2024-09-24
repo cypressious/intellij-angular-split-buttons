@@ -29,7 +29,7 @@ dependencies {
 intellijPlatform {
     pluginConfiguration {
         ideaVersion {
-            sinceBuild = "223"
+            sinceBuild = "231"
             untilBuild = provider { null }
         }
     }
