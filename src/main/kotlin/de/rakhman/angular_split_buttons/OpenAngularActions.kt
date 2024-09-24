@@ -39,7 +39,7 @@ abstract class AbstractOpenAngularAction(
 
         // find existing window where the sibling file is opened and which is not the window
         // where the action was performed
-        val window = fileEditorManager.splitters.windows().firstOrNull {
+        val window = fileEditorManager.splitters.getWindows().firstOrNull {
             !it.hasEditor(myEditor) && it.hasFile(siblingFile)
         }
 
@@ -49,7 +49,7 @@ abstract class AbstractOpenAngularAction(
         } else {
             // otherwise, split the current window
             val currentWindow =
-                fileEditorManager.splitters.windows().firstOrNull { it.hasEditor(myEditor) }
+                fileEditorManager.splitters.getWindows().firstOrNull { it.hasEditor(myEditor) }
                     ?: fileEditorManager.currentWindow
 
             currentWindow?.split(
