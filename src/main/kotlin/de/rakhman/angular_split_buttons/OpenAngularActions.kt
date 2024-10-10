@@ -7,6 +7,7 @@ import com.intellij.openapi.actionSystem.AnActionEvent
 import com.intellij.openapi.actionSystem.CommonDataKeys
 import com.intellij.openapi.fileEditor.ex.FileEditorManagerEx
 import com.intellij.psi.PsiFile
+import icons.JavaScriptCoreIcons
 import icons.JavaScriptPsiIcons
 import icons.SassIcons
 import javax.swing.Icon
@@ -88,9 +89,9 @@ class OpenAngularTemplateAction :
 }
 
 class OpenAngularCodeAction :
-    AbstractOpenAngularAction("Open Component Code", JavaScriptPsiIcons.FileTypes.TypeScriptFile) {
+    AbstractOpenAngularAction("Open Component Code", JavaScriptCoreIcons.FileTypes.TypeScriptFile) {
     override val extensions = mapOf(
-        "ts" to JavaScriptPsiIcons.FileTypes.TypeScriptFile,
+        "ts" to JavaScriptCoreIcons.FileTypes.TypeScriptFile,
     )
 }
 

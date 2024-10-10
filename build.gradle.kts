@@ -4,7 +4,7 @@ plugins {
 }
 
 group = "org.example"
-version = "0.1.4"
+version = "0.1.5"
 
 repositories {
     mavenCentral()
@@ -16,7 +16,7 @@ repositories {
 
 dependencies {
     intellijPlatform {
-        create("IU", "2024.2")
+        create("IU", "243.19420.21")
         bundledPlugins(listOf("JavaScript", "org.jetbrains.plugins.sass"))
 
         pluginVerifier()
@@ -29,7 +29,7 @@ dependencies {
 intellijPlatform {
     pluginConfiguration {
         ideaVersion {
-            sinceBuild = "231"
+            sinceBuild = "243.19420.21"
             untilBuild = provider { null }
         }
     }
