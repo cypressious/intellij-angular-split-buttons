@@ -8,15 +8,11 @@ import com.intellij.openapi.actionSystem.CommonDataKeys
 import com.intellij.openapi.fileEditor.ex.FileEditorManagerEx
 import com.intellij.psi.PsiFile
 import icons.JavaScriptCoreIcons
-import icons.JavaScriptPsiIcons
 import icons.SassIcons
 import javax.swing.Icon
 import javax.swing.JSplitPane
 
-abstract class AbstractOpenAngularAction(
-    title: String,
-    icon: Icon,
-) : AnAction({ title }, icon) {
+abstract class AbstractOpenAngularAction : AnAction() {
     abstract val extensions: Map<String, Icon>
 
     override fun update(e: AnActionEvent) {
@@ -81,22 +77,19 @@ abstract class AbstractOpenAngularAction(
 }
 
 
-class OpenAngularTemplateAction :
-    AbstractOpenAngularAction("Open Component Template", AllIcons.FileTypes.Html) {
+class OpenAngularTemplateAction : AbstractOpenAngularAction() {
     override val extensions = mapOf(
         "html" to AllIcons.FileTypes.Html,
     )
 }
 
-class OpenAngularCodeAction :
-    AbstractOpenAngularAction("Open Component Code", JavaScriptCoreIcons.FileTypes.TypeScriptFile) {
+class OpenAngularCodeAction : AbstractOpenAngularAction() {
     override val extensions = mapOf(
         "ts" to JavaScriptCoreIcons.FileTypes.TypeScriptFile,
     )
 }
 
-class OpenAngularStylesAction :
-    AbstractOpenAngularAction("Open Component Styles", AllIcons.FileTypes.Css) {
+class OpenAngularStylesAction : AbstractOpenAngularAction() {
     override val extensions = mapOf(
         "css" to AllIcons.FileTypes.Css,
         "scss" to SassIcons.Sass,

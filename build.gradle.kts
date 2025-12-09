@@ -1,10 +1,10 @@
 plugins {
-    kotlin("jvm") version "1.9.25"
-    id("org.jetbrains.intellij.platform") version "2.0.1"
+    kotlin("jvm") version "2.2.21"
+    id("org.jetbrains.intellij.platform") version "2.10.5"
 }
 
 group = "org.example"
-version = "0.1.5"
+version = "0.1.6"
 
 repositories {
     mavenCentral()
@@ -16,7 +16,7 @@ repositories {
 
 dependencies {
     intellijPlatform {
-        create("IU", "243.19420.21")
+        create("IU", "2025.3")
         bundledPlugins(listOf("JavaScript", "org.jetbrains.plugins.sass"))
 
         pluginVerifier()
@@ -29,7 +29,7 @@ dependencies {
 intellijPlatform {
     pluginConfiguration {
         ideaVersion {
-            sinceBuild = "243.19420.21"
+            sinceBuild = "253"
             untilBuild = provider { null }
         }
     }

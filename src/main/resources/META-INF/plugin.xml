@@ -42,19 +42,22 @@
     </extensions>
 
     <actions>
-        <action id="de.rakhman.angular_split_buttons.OpenAngularStylesAction"
-                class="de.rakhman.angular_split_buttons.OpenAngularStylesAction"
-                text="OpenAngularTemplate">
+        <action id="de.rakhman.angular_split_buttons.OpenAngularTemplateAction"
+                class="de.rakhman.angular_split_buttons.OpenAngularTemplateAction"
+                text="Open Component Template"
+                icon="AllIcons.FileTypes.Html">
             <add-to-group group-id="EditorContextBarMenu" anchor="first"/>
         </action>
         <action id="de.rakhman.angular_split_buttons.OpenAngularCodeAction"
                 class="de.rakhman.angular_split_buttons.OpenAngularCodeAction"
-                text="OpenAngularTemplate">
+                text="Open Component Code"
+                icon="JavaScriptCoreIcons.FileTypes.TypeScriptFile">
             <add-to-group group-id="EditorContextBarMenu" anchor="first"/>
         </action>
-        <action id="de.rakhman.angular_split_buttons.OpenAngularTemplateAction"
-                class="de.rakhman.angular_split_buttons.OpenAngularTemplateAction"
-                text="OpenAngularTemplate">
+        <action id="de.rakhman.angular_split_buttons.OpenAngularStylesAction"
+                class="de.rakhman.angular_split_buttons.OpenAngularStylesAction"
+                text="Open Component Styles"
+                icon="AllIcons.FileTypes.Css">
             <add-to-group group-id="EditorContextBarMenu" anchor="first"/>
         </action>
     </actions>
